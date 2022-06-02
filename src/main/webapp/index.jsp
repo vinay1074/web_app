@@ -4,7 +4,7 @@
 <video width="500px" height="500px" 
         controls="controls"/> 
           
-        <source src="Sample.mp4" 
+        <source src="sample1.mp4" 
             type="video/mp4"> 
     </video> 
 </body>
