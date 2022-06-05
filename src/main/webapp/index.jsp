@@ -1,317 +1,55 @@
+<!DOCTYPE HTML>
+<!-- This is how HTML comments look like -->
 <html>
-  <head>
-    <title></title>
-    <base href="/">
-    <link rel="icon" href="assets/favicon.ico">
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <meta content="width=device-width, initial-scale=1, minimum-scale=1.0, user-scalable=no" name="viewport">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68472312-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-68472312-3');
-</script>
-
-
-    <script type="text/javascript">
-      window.lucybot = {};
-      function checkBooleanQueryParam(name) {
-        return !!window.location.href.substring(window.location.href.indexOf('?')).match(new RegExp('[?&]' + name + '=[^0f]'));
-      }
-      window.lucybot.openapi = {};
-      window.lucybot.prerender = checkBooleanQueryParam('prerender');
-      window.lucybot.embed = checkBooleanQueryParam('embed');
-      window.lucybot.showNavigation = checkBooleanQueryParam('showNavigation');
-    </script>
-
-  <link href="styles.bundle.css" rel="stylesheet"/></head>
-
-  <body>
-    <div id="Navbar"><div id="KalturaSignInModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Log in to your Kaltura.com account</h3>
-      </div>
-      <form onsubmit="startKalturaLogin(); return false">
-        <div class="modal-body">
-          <div style="display:none" class="alert alert-danger">
-            There was an error signing in. Please check your account details and try again.
-          </div>
-          <p>Log into your Kaltura account using your e-mail and password</p>
-          <label>E-mail</label>
-          <div class="form-group">
-            <input class="form-control" type="text" name="KalturaEmail">
-          </div>
-          <div class="partner-id-input">
-            <label>Partner ID</label>
-            <div class="form-group">
-              <input class="form-control" type="number" name="KalturaPartnerId">
-            </div>
-          </div>
-          <label>Password</label>
-          <div class="form-group">
-            <input class="form-control" type="password" name="KalturaPassword">
-          </div>
-          <label>One Time Authentication code (leave empty if OTP is not enabled for your partner[s])</label>
-          <div class="form-group">
-            <input class="form-control" type="password" name="OTP">
-          </div>
-          <hr>
-          <p>Or use a pre-generated Kaltura Session</p>
-          <label>Kaltura Session ID (ks)</label>
-          <div class="form-group">
-            <input class="form-control" type="text" name="KalturaSession">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <p class="text-left">Need an account? <a href="https://vpaas.kaltura.com/register.php?utm_source=developertools&utm_campaign=login&utm_medium=website">Try Kaltura for free!</a></p>
-          <button id="KalturaSignInButton" type="submit" class="btn btn-primary">Log In</button>
-        </div>
-      </form>
-    </div>
-  </div>
+<!-- the title will appear on the page-->
+<head>
+<title>Employee Interests Survey</title>
+</head>
+<body>
+<!-- as it is a survey form, we will need to submit the details, hence we use form -->
+<!-- We can give absolute url, or relative url like /nextpage.jsp, and specify POST or GET method -->
+<form action="http://google.co.in">
+<!-- If we remove this, every thing will move to the left of the page-->
+<div align="center">
+<!--Adds a heading to the form-->
+<h1>Employee Interests Survey form</h1>
+Enter your name:
+<!-- Input type text for small texts, specify size -->
+<input type="text" name="UserName" size=35 maxlength=35 value="">
+<!--Adds spaces - remove and see what happens -->
+</br></br>
+Enter your department:
+<input type="text" name="Deptt" size=35 maxlength=35 value=""> </br> </br>
+Tell us a little about yourself:
+<!-- For writing lot of text like descriptions with text wrapping,
+if you dont want text wrapping, you can add wrap = "off" (horizontal scrollbar -->
+<textarea name="Comments" cols=30 rows=4></textarea> </br> </br>
+Do you exercise at home?
+<!-- Radio buttons help you choose one out of the many values -->
+<input type="radio" name="exe" value=1>Yes
+<input type="radio" name="exe" value=2>No
+</p>
+How do you like to read about your favorite topics?
+<p>
+<!--Checkbox lets you select multiple options -->
+<input type="checkbox" name="Books">Books
+<input type="checkbox" name="Web">Online resources
+<input type="checkbox" name="Phone">Phone apps
+<input type="checkbox" name="Magazines">Magazines
+</p>
+What genre of movies do you like?
+<!--Select box lets you choose one of the multiple dropdown options-->
+<select name="moviepref" ><option>
+<option value=1 selected = "true">comedy
+<option value=2 >romance
+<option value=3 >thriller
+<option value=4 >horror
+<option value=5 >biopic
+</select>
+</br></br>
+<!--submits the information entered in the form by the user -->
+<input type=submit value="Submit form">
 </div>
-
-<div id="KalturaPartnerIDModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Choose a Kaltura Account</h3>
-      </div>
-      <div class="modal-body">
-        <p>Please choose a Kaltura Account ID (aka Partner ID) to use</p>
-        <div class="dropdown">
-          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">Account ID <i class="fa fa-caret-down"></i></a>
-          <ul class="dropdown-menu"><li><i class="fa fa-spin fa-refresh"></i></li></ul>
-        </div>
-        <h1 class="text-center kaltura-loading"><i class="fa fa-spin fa-refresh"></i></h1>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="KalturaContinueSessionModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Your session is about to expire</h3>
-      </div>
-      <div class="modal-body">
-        <p>Would you like to continue your session?</p>
-        <p>
-          <div class="btn-toolbar">
-            <a class="btn btn-primary" onclick="kalturaUser && kalturaUser.ks ? setKalturaUser(kalturaUser) : jquery('#KalturaSignInModal').modal('show')" data-dismiss="modal">Continue</a>
-            <a class="btn btn-default" onclick="setKalturaUser(null)" data-dismiss="modal">Sign out</a>
-          </div>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="KalturaSecretsModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Account Secrets</h3>
-      </div>
-      <div class="modal-body">
-        <p><label>User Secret:&nbsp;</label><span class="kalturaUserSecret"></span></p>
-        <p><label>Admin Secret:&nbsp;</label><span class="kalturaAdminSecret"></span></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<nav id="KalturaNav" class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#NavbarCollapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <i class="fa fa-bars"></i>
-      </button>
-      <a href="/" class="navbar-brand">
-        <img src="/homepage/assets/images/Kaltura-logo.png">
-        <span class="brand-subtitle">Developer</span>
-      </a>
-    </div>
-    <div id="NavbarCollapse" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-link">
-          <a href="api-docs">API Docs</a>
-        </li>
-        <li class="navbar-link">
-	  <a href="https://developer.kaltura.com/player/">Player</a>
-        </li>
-        <li class="navbar-link">
-          <a href="console">Console</a>
-        </li>
-        <li class="navbar-link workflows-link">
-          <a href="workflows">Workflows</a>
-        </li>
-        <li class="navbar-link">
-          <a href="api-docs/Client_Libraries">Client Libraries</a>
-        </li>
-        <li class="navbar-link">
-          <a href="https://medium.com/kaltura-developer">Blog</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div id="KalturaSidebar">
-  <div class="sidebar-content">
-    <div class="section">
-      <h4>Admin</h4>
-      <hr>
-      <div class="not-logged-in">
-        <p><i>Log in to see your account details</i></p>
-      </div>
-      <div class="logged-in" style="display:none">
-        <p><label>Partner ID:&nbsp;</label><span class="partnerId"></span></p>
-        <p id="KalturaShowSecrets">
-          <a onclick="window.jquery('#KalturaSecrets').show(); window.jquery('#KalturaShowSecrets').hide()">Show secrets</a>
-        </p>
-        <div id="KalturaSecrets" style="display:none">
-          <p><label>User Secret:&nbsp;</label><span class="kalturaUserSecret"></span></p>
-          <p><label>Admin Secret:&nbsp;</label><span class="kalturaAdminSecret"></span></p>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <h4>Resources</h4>
-      <hr>
-      <p><a target="_blank" href="api-docs">API Docs</a></p>
-      <p><a target="_blank" href="console">API Console</a></p>
-    </div>
-
-    <div class="section">
-      <h4>From our blog</h4>
-      <hr>
-      <div id="KalturaBlogContent"></div>
-    </div>
-  </div>
-  <div class="sidebar-button">
-    <a class="hide-sidebar" onclick="hideKalturaSidebar()"><i class="fa fa-times"></i></a>
-    <a class="show-sidebar" style="display: none" onclick="showKalturaSidebar()">
-      <img src="assets/img/notes.svg">
-    </a>
-  </div>
-</div>
-
-<script>
-var keepNav = true;
-var keepSidebar = true;
-if (window.lucybot.embed) {
-  keepNav = false;
-  if (!window.lucybot.showNavigation) {
-    keepSidebar = false;
-  }
-}
-
-if (!keepNav) {
-  var elem = document.getElementById('KalturaNav');
-  if (elem) elem.remove();
-} else {
-  document.getElementsByTagName('body')[0].className += ' spaced-for-kaltura-nav';
-}
-if (!keepSidebar) {
-  var elem = document.getElementById('KalturaSidebar');
-  if (elem) elem.remove();
-} else {
-  document.getElementsByTagName('body')[0].className += ' spaced-for-kaltura-sidebar';
-}
-</script>
-
-</div>
-
-    <app class="loading"></app>
-
-    <div id="Footer"><div class="footer" id="KalturaFooterContainer">
-<div id="KalturaFooter" class="w-section footer-section">
-  <div class="w-container container footer-container">
-    <div class="row">
-      <div class="col col-sm-3 footer-links-columns">
-        <h5 class="footer-headings"><a data-toggle="collapse" class="collapsed" data-target="#vpaasLinks">VPaaS<i class="fa fa-chevron-up"></i></a></h5>
-        <div id="vpaasLinks" class="collapse">
-          <a class="footer-links" href="https://vpaas.kaltura.com">Overview</a><a class="footer-links" href="/api-docs/Overview">API</a><a data-ix="scroll-to-apply" class="footer-links" href="https://vpaas.kaltura.com/#case_study_section" id="case_study_link">Case Studies</a><a class="footer-links" href="https://vpaas.kaltura.com/register.php?utm_source=developertools&utm_campaign=login&utm_medium=website">Register for a Free Trial</a>
-        </div>
-      </div>
-      <div class="col col-sm-3 footer-links-columns">
-        <h5 class="footer-headings"><a data-toggle="collapse" class="collapsed" data-target="#toolsLinks">Tools<i class="fa fa-chevron-up"></i></a></h5>
-        <div id="toolsLinks" class="collapse">
-          <a class="footer-links" href="/console">API Test Console</a><a class="footer-links" href="/api-docs/Client_Libraries">Client Libraries</a><a class="footer-links" href="/player">iOS &amp; Android Mobile SDKs</a><a class="footer-links" href="/workflows">Interactive Workflows</a><a class="footer-links" href="https://vpaas.kaltura.com/documentation/04_Web-Video-Player/">Player Toolkit</a><a class="footer-links" href="https://github.com/kaltura" target="_blank">Kaltura on Github</a><a class="footer-links" href="https://stackoverflow.com/questions/tagged/kaltura" target="_blank">Kaltura on Stack Overflow</a>
-        </div>
-      </div>
-      <div class="col col-sm-3 footer-links-columns">
-        <h5 class="footer-headings"><a data-toggle="collapse" class="collapsed" data-target="#resourcesLinks">Resources<i class="fa fa-chevron-up"></i></a></h5>
-        <div id="resourcesLinks" class="collapse">
-          <a class="footer-links" href="/api-docs">API Documentation</a><a class="footer-links" href="https://knowledge.kaltura.com" target="_blank">Knowledge Center</a><a class="footer-links" href="https://university.kaltura.com" target="_blank">Kaltura University</a><a class="footer-links" href="https://corp.kaltura.com/live-webinars" target="_blank">Webinars</a><a class="footer-links" href="http://videos.kaltura.com" target="_blank">Kaltura Video Tutorials</a>
-        </div>
-      </div>
-      <div class="col col-sm-3 footer-links-columns">
-        <h5 class="footer-headings"><a data-toggle="collapse" class="collapsed" data-target="#communityLinks">Community<i class="fa fa-chevron-up"></i></a></h5>
-        <div id="communityLinks" class="collapse">
-          <a class="footer-links" href="https://vpaas.kaltura.com/partners">Partner Network</a><a class="footer-links" href="https://forum.kaltura.org" target="_blank">Forums</a><a class="footer-links" href="https://corp.kaltura.com/kaltura-events" target="_blank">Meet Kaltura at Events</a><a class="footer-links" href="https://blog.kaltura.com">Blog</a>
-        </div>
-        <div class="secondary-links">
-          <h5 class="footer-headings footer-heading-margin"><a data-toggle="collapse" data-target="#openSourceLinks">Open Source<i class="fa fa-chevron-up"></i></a></h5>
-          <div id="openSourceLinks" class="collapse">
-            <a class="footer-links" href="https://www.kaltura.org/" target="_blank">opensource.kaltura.org</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="kaltura-links">
-    <div class="container">
-      <div class="row">
-        <div class="col col-xs-12 col-sm-4">
-          <img src="/homepage/assets/images/Kaltura-Logo-white.png">
-        </div>
-        <div class="col col-xs-12 col-sm-4 footer-last-links-column">
-          <a class="sub-footer-links" target="_blank" href="https://corp.kaltura.com/About-Kaltura">About</a>
-          <a class="sub-footer-links" href="/sitemap.xml" target="_blank">Sitemap</a>
-          <a class="sub-footer-links" target="_blank" href="https://corp.kaltura.com">Kaltura.com</a>
-        </div>
-        <div class="social-icon-container col col-xs-12 col-sm-4">
-          <a href="https://stackoverflow.com/questions/tagged/kaltura" target="_blank"><div class="social-div fa-stack-overflow fa fa-2x"></div></a>
-          <a href="https://github.com/kaltura" target="_blank"><div class="social-div fa-github fa fa-2x"></div></a>
-          <a href="https://twitter.com/Kaltura" target="_blank"><div class="social-div fa fa-twitter fa-2x"></div></a>
-          <a href="https://www.linkedin.com/company/kaltura" target="_blank"><div class="social-div fa fa-linkedin fa-2x"></div></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="w-container container copyright-container">
-    <div class="row">
-      <div class="col col-xs-12 copyright-column">
-        <div class="footer-copyright">Copyright &#xA9; <span id="KalturaYear"></span> Kaltura Inc.</div>
-        <script>
-          document.getElementById('KalturaYear').innerHTML = (new Date()).getFullYear();
-        </script>
-        <div class="footer-copyright-description">All Rights Reserved. Designated trademarks and brands are the property of their respective owners.
-          <br>Use of this web site constitutes acceptance of the Terms of Use and Privacy Policy.</div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<script>
-if (window.lucybot.embed) {
-  elem = document.getElementById('KalturaFooterContainer');
-  if (elem) elem.remove();
-}
-</script>
-
-</div>
-  <script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="scripts.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+</form>
+</body>
 </html>
