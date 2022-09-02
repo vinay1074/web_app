@@ -15,7 +15,7 @@
 
         <div id="tooplate_menu">
             <ul>
-                <li><a href="index.html" class="current">Home</a></li>
+                <li><a href="index.jsp" class="current">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li>
