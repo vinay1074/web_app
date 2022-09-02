@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>City Blog Theme - Free Website Template</title>
-<meta name="keywords" content="city blog, theme, free templates, website templates, CSS, HTML" />
+<meta name="keywords" content="city blog chennai, theme, free templates, website templates, CSS, HTML" />
 <meta name="description" content="City Blog Theme is a free website template provided by tooplate.com" />
 <link href="tooplate_style.css" rel="stylesheet" type="text/css" />
 <!--   Free Website Template by t o o p l a t e . c o m   -->
