@@ -1,0 +1,11 @@
+version: 0.0
+os: linux
+files:
+  - source: target/web_app.war
+    destination: /usr/local/tomcat9/webapps/
+hooks:
+  AfterInstall:
+    - location: scripts/intall_package
+      timeout: 300
+      runas: root
+
