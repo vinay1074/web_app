@@ -15,7 +15,7 @@ spec:
         app: simple-web
     spec:
       containers:
-      - image: web_app:1
+      - image: vinay1074/web_app
         name: simple-web
         ports:
         - containerPort: 8080
