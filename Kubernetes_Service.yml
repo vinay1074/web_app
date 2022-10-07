@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     app: simple-web
-  type: NodePort
+  type: LoadBalancer
   ports:
     - name: simple-web
       protocol: TCP
