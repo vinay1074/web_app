@@ -69,6 +69,13 @@
                     <h2>Internet Marketing Services</h2>
                     <img src="images/blog_image_02.jpg" alt="Image 02" />
                     <p>Etiam sapien leo, luctus non molestie eu, bibendum in dolor. Integer iaculis enim a ipsum pellentesque scelerisque tincidunt ante dictum. Maecenas id ante ut felis accumsan suscipit posuere quis augue. Vivamus eu mollis nisi. Praesent at erat a magna ultricies bibendum. </p>
+
+                    <p>Etiam sapien leo, luctus non molestie eu, bibendum in dolor. Integer iaculis enim a ipsum pellentesque scelerisque tincidunt ante dictum. Maecenas id ante ut felis accumsan suscipit posuere quis augue. Vivamus eu mollis nisi. Praesent at erat a magna ultricies bibendum. </p>
+
+                    <p>Etiam sapien leo, luctus non molestie eu, bibendum in dolor. Integer iaculis enim a ipsum pellentesque scelerisque tincidunt ante dictum. Maecenas id ante ut felis accumsan suscipit posuere quis augue. Vivamus eu mollis nisi. Praesent at erat a magna ultricies bibendum. </p>
+
+                    <p>Etiam sapien leo, luctus non molestie eu, bibendum in dolor. Integer iaculis enim a ipsum pellentesque scelerisque tincidunt ante dictum. Maecenas id ante ut felis accumsan suscipit posuere quis augue. Vivamus eu mollis nisi. Praesent at erat a magna ultricies bibendum. </p>
+                    
                         <div class="cleaner"></div>
                     <div class="post_footer">
                     	<p class="comment">135 comments</p>
