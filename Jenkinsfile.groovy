@@ -26,9 +26,7 @@ pipeline {
                 withSonarQubeEnv('SonarQube'){
         sh '''cd web_app
         mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=web-app-anal \
-  -Dsonar.host.url=http://10.0.1.122:9000 \
-  -Dsonar.login=sqp_5e46e4085c7730d7a6d853890b9e1fc597f1a11c
+  -Dsonar.projectKey=web-app-anal 
   '''
     }
             }
