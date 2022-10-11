@@ -46,7 +46,7 @@ pipeline {
             sh '''cd web_app
         mvn clean package
         docker build -t web_app .
-        docker tag web_app vinay1074/web_app:
+        docker tag web_app vinay1074/web_app
         docker push vinay1074/web_app
         docker rmi web_app vinay1074/web_app
         '''
