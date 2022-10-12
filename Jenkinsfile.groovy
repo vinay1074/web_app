@@ -16,7 +16,6 @@ pipeline {
         stage("Clone code from VCS") {
             steps {
                 script {
-                    rm -r web_app;
                     git 'https://github.com/vinay1074/web_app.git';
                 }
             }
@@ -24,8 +23,7 @@ pipeline {
         stage("Test"){
             steps{
                 withSonarQubeEnv('SonarQube'){
-        sh '''cd web_app
-        mvn clean verify sonar:sonar \
+        sh '''mvn clean verify sonar:sonar \
   -Dsonar.projectKey=web-app-anal 
   '''
     }
@@ -41,8 +39,7 @@ pipeline {
     }
     stage("Build") {
         steps{
-            sh '''cd web_app
-        mvn clean package
+            sh '''mvn clean package
         docker build -t web_app .
         docker tag web_app vinay1074/web_app
         docker push vinay1074/web_app
@@ -87,8 +84,7 @@ pipeline {
         }
     stage("'K8S Deploy") {
        steps{
-         sh '''cd web_app
-        kubectl apply -f Kubernetes_Deployment.yml
+         sh '''kubectl apply -f Kubernetes_Deployment.yml
         kubectl apply -f Kubernetes_Service.yml
         '''
        }
