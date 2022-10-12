@@ -39,16 +39,12 @@ pipeline {
     }
     stage("Build") {
         steps{
-            sh '''mvn clean package
-        docker build -t web_app .
-        docker tag web_app vinay1074/web_app
-        docker push vinay1074/web_app
-        docker rmi web_app vinay1074/web_app
-        '''
-        }
+            sh 'mvn clean deploy'
+              }
     }
         stage("Publish to Nexus Repository Manager") {
-            steps {
+             stage('Push to Nexus'){
+           steps {
                 script {
                     pom = readMavenPom file: "pom.xml";
                     filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
@@ -57,38 +53,16 @@ pipeline {
                     artifactExists = fileExists artifactPath;
                     if(artifactExists) {
                         echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
-                        nexusArtifactUploader(
-                            nexusVersion: NEXUS_VERSION,
-                            protocol: NEXUS_PROTOCOL,
-                            nexusUrl: NEXUS_URL,
-                            groupId: pom.groupId,
-                            version: pom.version,
-                            repository: NEXUS_REPOSITORY,
-                            credentialsId: NEXUS_CREDENTIAL_ID,
+                        nexusArtifactUploader(nexusVersion: NEXUS_VERSION, protocol: NEXUS_PROTOCOL, nexusUrl: NEXUS_URL, groupId: pom.groupId, version: pom.version, repository: NEXUS_REPOSITORY, credentialsId: NEXUS_CREDENTIAL_ID,
                             artifacts: [
-                                [artifactId: pom.artifactId,
-                                classifier: '',
-                                file: artifactPath,
-                                type: pom.packaging],
-                                [artifactId: pom.artifactId,
-                                classifier: '',
-                                file: "pom.xml",
-                                type: "pom"]
-                            ]
-                        );
-                    } else {
-                        error "*** File: ${artifactPath}, could not be found";
+                                [artifactId: pom.artifactId, classifier: '', file: artifactPath, type: pom.packaging],
+                                [artifactId: pom.artifactId, classifier: '', file: "pom.xml", type: "pom"]
+                            ]);} 
+                        else {
+                               error "*** File: ${artifactPath}, could not be found";
                     }
-                }
-            }
+               }  
+           }  
         }
-    stage("'K8S Deploy") {
-       steps{
-         sh '''kubectl apply -f Kubernetes_Deployment.yml
-        kubectl apply -f Kubernetes_Service.yml
-        '''
-       }
-    }
-
 }
 }
