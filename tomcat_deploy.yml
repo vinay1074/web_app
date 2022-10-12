@@ -3,6 +3,8 @@
   become: yes
   #user: jenkins
   tasks:
+   - name: Remove old WAR file
+     shell: rm -rf web_app web_app.war
    - name: Download a WAR File to the Tomcat webapps directory to be deployed
      maven_artifact:
        group_id: com.mycompany.app
