@@ -1,0 +1,14 @@
+---
+- hosts: tomcat
+  become: yes
+  #user: jenkins
+  tasks:
+   - name: Download a WAR File to the Tomcat webapps directory to be deployed
+     maven_artifact:
+       group_id: com.mycompany.app
+       artifact_id: web_app
+       extension: war
+       repository_url: 'http://3.95.65.174:8081/repository/maven-releases/'
+       username: jenkins-user
+       password: Vinay@1074
+       dest: /opt/apache-tomcat-9.0.68/webapps

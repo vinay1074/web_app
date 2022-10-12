@@ -64,5 +64,11 @@ pipeline {
                }  
            }  
         }
+        stage("Deploy to tomcat")
+        {
+            steps{
+                sh 'ansible-playbook tomcat_deploy.yml'
+            }
+        }
 }
 }
