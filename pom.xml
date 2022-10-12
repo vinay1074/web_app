@@ -21,8 +21,8 @@
 
     <distributionManagement>
    <repository>
-      <id>maven-nexus-repo</id>
-      <url>http://10.0.4.241:8081/repository/maven-nexus-repo/</url>
+      <id>maven-releases</id>
+      <url>http://10.0.4.241:8081/repository/maven-releases/</url>
    </repository>
    <snapshotRepository>
       <id>maven-snapshots</id>
