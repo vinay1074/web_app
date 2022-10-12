@@ -22,11 +22,11 @@
     <distributionManagement>
    <repository>
       <id>maven-nexus-repo</id>
-      <url>http://54.205.178.9:8081/repository/maven-nexus-repo/</url>
+      <url>http://10.0.4.241:8081/repository/maven-nexus-repo/</url>
    </repository>
    <snapshotRepository>
       <id>maven-snapshots</id>
-      <url>http://54.205.178.9:8081/repository/maven-snapshots/</url>
+      <url>http://10.0.4.241:8081/repository/maven-snapshots/</url>
    </snapshotRepository> 
   </distributionManagement>
 
