@@ -42,8 +42,8 @@ pipeline {
             sh 'mvn clean deploy'
               }
     }
-        stage("Publish to Nexus Repository Manager") {
-             stage('Push to Nexus'){
+       
+    stage('Push to Nexus'){
            steps {
                 script {
                     pom = readMavenPom file: "pom.xml";
