@@ -4,10 +4,11 @@
   #user: jenkins
   tasks:
    - name: Remove old WAR file
-     path: /opt/tomcat/webapps/web_app
-     state: absent
-     path: /opt/tomcat/webapps/web_app.war
-     state: absent
+     file:
+       path: /opt/tomcat/webapps/web_app
+       state: absent
+       path: /opt/tomcat/webapps/web_app.war
+       state: absent
    - name: Download a WAR File to the Tomcat webapps directory to be deployed
      maven_artifact:
        group_id: com.mycompany.app
