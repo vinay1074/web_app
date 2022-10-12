@@ -24,10 +24,10 @@
       <id>maven-nexus-repo</id>
       <url>http://10.0.4.241:8081/repository/maven-nexus-repo/</url>
    </repository>
-   <snapshotRepository>
+   <!--snapshotRepository>
       <id>maven-snapshots</id>
       <url>http://10.0.4.241:8081/repository/maven-snapshots/</url>
-   </snapshotRepository> 
+   </snapshotRepository--> 
   </distributionManagement>
 
   <dependencies>
