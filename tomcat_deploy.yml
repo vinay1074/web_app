@@ -18,8 +18,9 @@
        username: jenkins-user
        password: Vinay@1074
        dest: /opt/tomcat/webapps
-   - name: Tomcat restart
+   - name: +X to WAR file
      shell: chmod -R 755 /opt/tomcat/webapps/web_app.war
+   - name: Restart Tomcat
      service:
        name: tomcat
        state: restarted
