@@ -10,4 +10,4 @@
         url_password: Vinay@1074
         dest: /tmp
     - name: Deploy in Tomcat
-      shell: mv /tmp/web_app-5.0.war /opt/tomcat/web_app.war
+      shell: mv /tmp/web_app-2.0.war /opt/tomcat/web_app.war

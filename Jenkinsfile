@@ -67,7 +67,7 @@ pipeline {
         stage("Deploy to tomcat")
         {
             steps{
-                sh '''sudo ansible-playbook tomcat_deploy.yml'''
+                sh '''sudo ansible-playbook tomcat1_deploy.yml'''
             }
         }
 }
