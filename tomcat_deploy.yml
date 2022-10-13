@@ -20,6 +20,6 @@
        dest: /opt/tomcat/webapps
    - name: Tomcat restart
      shell: chmod -R 755 /opt/tomcat/webapps/web_app.war
-       service:
-         name: tomcat
-         state: restarted
+     service:
+       name: tomcat
+        state: restarted
