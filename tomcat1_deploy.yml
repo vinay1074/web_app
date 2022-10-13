@@ -1,13 +1,13 @@
 ---
 - hosts: tomcat
   become: yes
-  #user: jenkins
+  #user: root
   tasks:
     - name: Download a WAR File to the Tomcat webapps directory to be deployed
       get_url:
-        url: http://10.0.4.241:8081/repository/maven-releases/com/mycompany/app/web_app/5.0/web_app-5.0.war
+        url: http://10.0.4.241:8081/repository/maven-releases/com/mycompany/app/web_app/2.0/web_app-2.0.war
         url_username: admin
         url_password: Vinay@1074
         dest: /tmp
     - name: Deploy in Tomcat
-      shell: sudo mv /tmp/web_app-2.0.war /opt/tomcat/web_app.war
+      shell: mv /tmp/web_app-2.0.war /opt/tomcat/web_app.war
