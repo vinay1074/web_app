@@ -21,6 +21,6 @@
    - name: Tomcat restart
      shell: chmod -R 755 web_app.war
    - name: Restart Tomcat
-      service:
+     service:
         name: tomcat
         state: restarted
