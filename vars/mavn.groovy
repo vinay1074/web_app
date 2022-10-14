@@ -7,8 +7,16 @@ def call(String name) {
                 stage ('SCM') {
                     steps {
                         echo "SCM URL, ${name}."
+                        git 'name';
                     }
+                    
                 }
+               stage ('Build') {
+                    steps {
+                        sh 'mvn clean package';
+                    }
+                    
+                } 
             }
         }
     }
