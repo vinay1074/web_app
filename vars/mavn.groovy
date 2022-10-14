@@ -3,6 +3,8 @@
 class mavn{
     String url
     String branch
+    echo "${mvn.url}" 
+    echo "${mvn.branch}"
     
     pipeline {
     agent any
