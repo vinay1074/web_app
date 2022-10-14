@@ -6,10 +6,7 @@ pipeline {
     stages {
         stage('Demo') {
             steps {
-                echo 'Hello, world'
-                mavn 'Dave'
-
-               
+                mavn 'https://github.com/vinay1074/web_app.git'
             }
         }
     }
