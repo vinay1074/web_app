@@ -1,18 +1,18 @@
 @Library('pipeline-library-demo')_
 
+import com.cleverbuilder.GlobalVars
+import com.cleverbuilder.SampleClass
+
 pipeline {
-    agent any {
-        stages {
-            stage {
-                steps ('SCM') {
-                   script{
-                        def test = new mavn()
-                        test.url = "https://github.com/vinay1074/web_app.git"
-                        test.branch = "master"
-                    }
-                }
+    agent any
+    stages {
+        stage('Demo') {
+            steps {
+                echo 'Hello, world'
+                mavn 'Dave'
+
+               
             }
         }
     }
 }
-
