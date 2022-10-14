@@ -4,8 +4,8 @@ def call(String name) {
     pipeline {
         agent any
             stages {
-                stage {
-                    steps ('SCM') {
+                stage ('SCM') {
+                    steps {
                         echo "SCM URL, ${name}."
                     }
                 }
