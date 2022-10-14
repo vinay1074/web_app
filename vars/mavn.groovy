@@ -3,7 +3,6 @@
 def call(String name) {
     pipeline {
         agent any
-        {
             stages {
                 stage {
                     steps ('SCM') {
@@ -13,7 +12,3 @@ def call(String name) {
             }
         }
     }
-  
-
-}
-
