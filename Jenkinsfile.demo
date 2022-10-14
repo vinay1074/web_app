@@ -1,13 +1,3 @@
 @Library('pipeline-library-demo')_
+mavn 'https://github.com/vinay1074/web_app.git'
 
-
-pipeline {
-    agent any
-    stages {
-        stage('Demo') {
-            steps {
-                mavn 'https://github.com/vinay1074/web_app.git'
-            }
-        }
-    }
-}
