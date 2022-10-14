@@ -1,11 +1,11 @@
 @Library('pipeline-library-demo')_
 
-//import com.sampleSL.mavn
+import com.sampleSL.mavn
 
-//script {
-                    //def person = new mavn()
-                    //person.url('https://github.com/vinay1074/web_app.git')
+script {
+                    def person = new mavn()
+                    person.url('https://github.com/vinay1074/web_app.git')
 
-                //}
+                }
 
-mavn 'https://github.com/vinay1074/web_app.git'
+//mavn 'https://github.com/vinay1074/web_app.git'
