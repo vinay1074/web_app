@@ -5,8 +5,6 @@ def call(body){
     branch: '',
     url: '',
   ]
-body.resolveStrategy = Closure.DELIGATE_FIRST
-body.delegate = args
 body()
 echo "INFO: ${args.branch}"
 
