@@ -1,34 +1,25 @@
 #!/usr/bin/env groovy
 
-def call(body){
-  def args = [
-    branch: '',
-    url: ''
-  ]
-body()
-echo "INFO: ${args.branch}"
-
-pipeline {
-    agent any
+class mvn{
+    String url
+    String branch
     
-    stages {
-        stage ('git checkout'){
+    pipeline{
+    agent any
+    stages{
+        stage ('GITSCM'){
             steps{
-                checkout([
-                    $class: 'GitSCM',
-                      branches: [[name: args.branch]],
-                      userRemoteConfigs: [[url: args.url]]
-                ])
+               echo "${mvn.url}" 
+               echo "${mvn.branch}"
+              git 'url';        
+             }
+        }
+        stage('Build'){
+            steps{
+                sh 'mvn clean package'
             }
         }
-        stage ('Build'){
-            steps{
-                sh 'mvn -Dmaven.test.failure.ignore=true install'
-            }
-        }
-
     }
 }
+
 }
-
-
