@@ -4,7 +4,7 @@ import com.sampleSL.mavn
 
 script {
                     def person = new mavn()
-                    person.name = 'https://github.com/vinay1074/web_app.git'
+                    person.url = 'https://github.com/vinay1074/web_app.git'
 
                 }
 
