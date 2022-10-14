@@ -3,16 +3,16 @@
 class mavn{
     String url
     String branch
-    echo "${mvn.url}" 
-    echo "${mvn.branch}"
-    
+    echo "${mavn.url}" 
+    echo "${mavn.branch}"
+
     pipeline {
     agent any
     stages {
         stage ('GITSCM') {
             steps {
-               echo "${mvn.url}" 
-               echo "${mvn.branch}"
+               echo "${mavn.url}" 
+               echo "${mavn.branch}"
               git 'url';        
              }
         }
