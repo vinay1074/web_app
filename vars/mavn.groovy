@@ -3,7 +3,7 @@
 def call(body){
   def args = [
     branch: '',
-    url: '',
+    url: ''
   ]
 body()
 echo "INFO: ${args.branch}"
