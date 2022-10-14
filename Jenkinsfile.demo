@@ -1,5 +1,5 @@
 @Library('pipeline-library-demo')_
-def test = new mvn()
+def test = new mavn()
 test.url = "https://github.com/vinay1074/web_app.git"
 test.branch = "master"
 

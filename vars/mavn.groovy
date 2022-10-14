@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-class mvn{
+class mavn{
     String url
     String branch
     
