@@ -1,5 +1,5 @@
 @Library('pipeline-library-demo')_
 
-import com.sample-SL.mavn
+import com.sampleSL.mavn
 
 mavn 'https://github.com/vinay1074/web_app.git'
