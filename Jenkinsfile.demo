@@ -1,7 +1,18 @@
 @Library('pipeline-library-demo')_
 
-script{
-def test = new mavn()
-test.url = "https://github.com/vinay1074/web_app.git"
-test.branch = "master"
+pipeline {
+    agent any {
+        stages {
+            stage {
+                steps ('SCM') {
+                   script{
+                        def test = new mavn()
+                        test.url = "https://github.com/vinay1074/web_app.git"
+                        test.branch = "master"
+                    }
+                }
+            }
+        }
+    }
 }
+
