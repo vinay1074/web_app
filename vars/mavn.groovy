@@ -7,7 +7,7 @@ def call(String name) {
                 stage ('SCM') {
                     steps {
                         echo "SCM URL, ${name}."
-                        git ${name};
+                        git "${name}";
                     }
                     
                 }
