@@ -1,10 +1,5 @@
 @Library('pipeline-library-demo')_
-
 import com.sampleSL.mavn1
-
-script {
-                    echo "SCM URL " + mavn1.sample
-
-                }
+echo 'SCM URL ' + mavn1.sample
 
 //mavn 'https://github.com/vinay1074/web_app.git'
