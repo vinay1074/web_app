@@ -1,0 +1,5 @@
+@Library('pipeline-library-demo')_
+mavn{
+    branch="master"
+    url="https://github.com/vinay1074/web_app.git"
+}
