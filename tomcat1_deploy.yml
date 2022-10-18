@@ -2,12 +2,14 @@
 - hosts: tomcat
   become: yes
   #user: root
+  vars_files:
+    - /root/secret.yml
   tasks:
     - name: Download a WAR File to the Tomcat webapps directory to be deployed
       get_url:
         url: http://10.0.4.241:8081/repository/maven-releases/com/mycompany/app/web_app/2.0/web_app-2.0.war
-        url_username: admin
-        url_password: Vinay@1074
+        url_username: "{{ username }}"
+        url_password: "{{ password }}"
         dest: /tmp
     - name: Deploy in Tomcat
       shell: mv /tmp/web_app-2.0.war /opt/tomcat/webapps/web_app.war
