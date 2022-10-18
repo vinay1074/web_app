@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage ('SCM') {
             steps {
-                SCM 'https://github.com/vinay1074/web_app.git'
+                SCM "https://github.com/vinay1074/web_app.git"
             }
         }
         stage ('Build') {
