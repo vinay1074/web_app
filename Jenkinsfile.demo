@@ -1,6 +1,19 @@
 @Library('pipeline_library')_
 import com.sampleSL.mavn2
+import com.sampleSL.mavn1
 //echo 'SCM URL ' + mavn1.sample
-
-mavn2 'https://github.com/vinay1074/web_app.git'
+//mavn2 'https://github.com/vinay1074/web_app.git'
+pipeline {
+    agent any
+      stages {
+        stage ('SCM') {
+            steps {
+                script {
+                def git_SCM = new mavn1()
+                git_SCM.SCM('https://github.com/vinay1074/web_app.git')
+                }
+            }
+        }
+      }
+}
 
