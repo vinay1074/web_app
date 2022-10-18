@@ -1,4 +1,4 @@
-@Library('pipeline-library-demo')_
+@Library('pipeline_library')_
 import com.sampleSL.mavn1
 echo 'SCM URL ' + mavn1.sample
 
