@@ -2,20 +2,5 @@
 import com.sampleSL.mavn2
 //echo 'SCM URL ' + mavn1.sample
 
-//mavn 'https://github.com/vinay1074/web_app.git'
+mavn 'https://github.com/vinay1074/web_app.git'
 
-pipeline {
-    agent any
-      stages {
-        stage ('Build') {
-            steps {
-                script {
-                    def person = new mavn2()
-                    person.name = "https://github.com/vinay1074/web_app.git"
-                    //person.increaseAge(10)
-                    echo 'SCM is : ' + person.name
-                }
-            }
-        }
-      }
-}
