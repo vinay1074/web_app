@@ -67,7 +67,7 @@ pipeline {
         stage("Deploy to tomcat")
         {
             steps{
-                sh '''sudo ansible-playbook tomcat1_deploy.yml'''
+                sh '''sudo ansible-playbook tomcat1_deploy.yml --vault-password-file /root/passwd.txt'''
             }
         }
 }
