@@ -1,6 +1,21 @@
 @Library('pipeline_library')_
 
 //echo 'SCM URL ' + mavn1.sample
-build 'https://github.com/vinay1074/web_app.git'
+//SCM 'https://github.com/vinay1074/web_app.git'
 
+pipeline {
+    agent any
+    stages {
+        stage ('SCM') {
+            steps {
+                SCM 'https://github.com/vinay1074/web_app.git'
+            }
+        }
+        stage ('Build') {
+            steps {
+                build
+            }
+        }
+    }
+}
 
