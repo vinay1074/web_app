@@ -11,6 +11,7 @@ pipeline {
                 script {
                 def git_SCM = new mavn1()
                 git_SCM.SCM('https://github.com/vinay1074/web_app.git')
+                echo "SCM :" + git_SCM.SCM
                 }
             }
         }
