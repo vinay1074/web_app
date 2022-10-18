@@ -12,7 +12,7 @@ pipeline {
                     def person = new mavn1()
                     //person.name = 'https://github.com/vinay1074/web_app.git'
                     person.SCM('https://github.com/vinay1074/web_app.git')
-                    echo 'SCM : ' + person.Test
+                    echo 'SCM : ' + person.test
                 }
             }
         }
