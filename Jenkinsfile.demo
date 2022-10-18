@@ -2,5 +2,5 @@
 import com.sampleSL.mavn2
 //echo 'SCM URL ' + mavn1.sample
 
-mavn 'https://github.com/vinay1074/web_app.git'
+mavn2 'https://github.com/vinay1074/web_app.git'
 
