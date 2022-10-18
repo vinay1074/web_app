@@ -5,7 +5,7 @@ import com.sampleSL.mavn2
 //mavn 'https://github.com/vinay1074/web_app.git'
 script {
                     def person = new SampleClass()
-                    person.name = https://github.com/vinay1074/web_app.git
+                    person.name = "https://github.com/vinay1074/web_app.git"
                     //person.increaseAge(10)
                     echo 'SCM is : ' + person.name
                 }
