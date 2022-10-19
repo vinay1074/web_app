@@ -84,6 +84,7 @@ pipeline {
                 sh '''kubectl apply -f Kubernetes_Deployment.yml
                 kubectl apply -f Kubernetes_Service.yml'''
         }
+        }
 
        
 }
