@@ -5,6 +5,9 @@ pipeline {
     tools {
         maven "Maven"
     }
+    parameters { 
+              string(name: 'imageversion', defaultValue: '1.0', description: "Please Provide image version Version")
+   } 
     environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
@@ -51,6 +54,7 @@ pipeline {
                     echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
                     artifactPath = filesByGlob[0].path;
                     artifactExists = fileExists artifactPath;
+                    parms.imageversion = ${pom.version};
                     if(artifactExists) {
                         echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
                         nexusArtifactUploader(nexusVersion: NEXUS_VERSION, protocol: NEXUS_PROTOCOL, nexusUrl: NEXUS_URL, groupId: pom.groupId, version: pom.version, repository: NEXUS_REPOSITORY, credentialsId: NEXUS_CREDENTIAL_ID,
@@ -64,6 +68,19 @@ pipeline {
                }  
            }  
         }
+           stage ('Docker Build') {
+                steps {
+         // Build and push image with Jenkins' docker-plugin
+                  sh label: '', script: '''aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 453411705158.dkr.ecr.us-east-1.amazonaws.com
+                  docker build -t web_app .
+                  docker tag web_app:latest 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:latest
+                  docker push 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:latest'''
+
+                  
+            
+            }
+        }
+
         stage("Deploy to tomcat")
         {
             steps{
@@ -72,3 +89,4 @@ pipeline {
         }
 }
 }
+
