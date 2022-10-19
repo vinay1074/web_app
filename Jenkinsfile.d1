@@ -1,3 +1,4 @@
+@Library('pipeline-library-demo')_
 pipeline {
     agent {
         label "master01"
@@ -5,9 +6,7 @@ pipeline {
     tools {
         maven "Maven"
     }
-    def vers(Integer version = 'human') {
-  echo "image version, ${version}."
-}
+   
         environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
