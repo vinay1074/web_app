@@ -70,10 +70,10 @@ pipeline {
                 steps {
          // Build and push image with Jenkins' docker-plugin
                   sh label: '', script: '''aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 453411705158.dkr.ecr.us-east-1.amazonaws.com
-                  docker rmi -f $(docker images -q)
                   docker build -t web_app:${IMAGE_VERSION} .
                   docker tag web_app:${IMAGE_VERSION} 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:${IMAGE_VERSION}
                   docker push 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:${IMAGE_VERSION}
+                  docker rmi web_app:${IMAGE_VERSION} 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:${IMAGE_VERSION}
                   '''
 
                   
