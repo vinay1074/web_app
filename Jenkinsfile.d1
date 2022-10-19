@@ -79,6 +79,11 @@ pipeline {
             
             }
         }
+        stage ('K8S Deploy') {
+            steps {
+                sh '''kubectl apply -f Kubernetes_Deployment.yml
+                kubectl apply -f Kubernetes_Service.yml
+        }
 
        
 }

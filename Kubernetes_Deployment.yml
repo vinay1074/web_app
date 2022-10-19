@@ -15,7 +15,7 @@ spec:
         app: simple-web
     spec:
       containers:
-      - image: vinay1074/web_app
+      - image: 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:2.0
         name: simple-web
         ports:
         - containerPort: 8080
