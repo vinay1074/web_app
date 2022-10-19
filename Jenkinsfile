@@ -5,10 +5,7 @@ pipeline {
     tools {
         maven "Maven"
     }
-    parameters { 
-              string(name: 'imageversion', defaultValue: '1.0', description: "Please Provide image version Version")
-   } 
-    environment {
+        environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "10.0.4.241:8081"
@@ -71,9 +68,10 @@ pipeline {
                 steps {
          // Build and push image with Jenkins' docker-plugin
                   sh label: '', script: '''aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 453411705158.dkr.ecr.us-east-1.amazonaws.com
-                  docker build -t web_app:"${params.imageversion}" .
-                  docker tag web_app:"${params.imageversion}" 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:"${params.imageversion}"
-                  docker push 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:"${parmas.imageversion}"'''
+                  docker build -t web_app .
+                  docker tag web_app 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app
+                  docker push 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app
+                  '''
 
                   
             
