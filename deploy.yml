@@ -1,0 +1,67 @@
+---
+- hosts: jenkins
+  gather_facts: false
+
+  vars:
+    image_name: "{{ image_version }}"
+
+  tasks:
+    # Create Kubernetes namespace to run adjust task.
+    - name: Create a Service for adjust web server.
+      k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Namespace
+          metadata:
+            name: simple-web
+            
+    # Create Kubernetes resources to run adjust task.
+    - name: Create a Deployment for adjust task.
+      k8s:
+        state: present
+        definition:
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: simple-web
+            namespace: simple-web
+            labels:
+              app: simple-web
+          spec:
+            replicas: 2
+            selector:
+              matchLabels:
+                app: simple-web
+            template:
+              metadata:
+                labels:
+                  app: simple-web
+              spec:
+                containers:
+                  - name: simple-web
+                    image: "{{ image_name }}"
+                    ports:
+                    - containerPort: 8080
+
+    
+    - name: Create a Service for adjust web server.
+      k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: simple-web
+            namespace: simple-web
+          spec:
+            selector:
+              app: simple-web
+            type: LoadBalancer
+            ports:
+              - name: simple-web
+                protocol: TCP
+                port: 32000
+                targetPort: 8080
+                nodePort: 30000
+            
