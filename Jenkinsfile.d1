@@ -95,7 +95,7 @@ pipeline {
                             
                             playbook    : 'deploy.yml',
                             extraVars   : [
-                                    image_version: "453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:${pom.version}"
+                                    image_version: "ECR:${pom.version}"
                                 ]
                         ])
 
