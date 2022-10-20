@@ -80,8 +80,8 @@ pipeline {
                     dockerImage = docker.build('web_app' + ":${pom.version}")
                     dockerImage.push("${pom.version}")
                     }
-                     docker rmi ('web_app' + ":${pom.version}")
                     } 
+                    sh "docker rmi ECR + ":${pom.version}""
                 }
                 
             }
