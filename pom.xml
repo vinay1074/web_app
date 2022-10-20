@@ -6,7 +6,7 @@
 
   <groupId>com.mycompany.app</groupId>
   <artifactId>web_app</artifactId>
-  <version>4.0</version>
+  <version>1.0</version>
   <packaging>war</packaging>
 
   <name>web_app Maven Webapp</name>
@@ -22,11 +22,11 @@
     <distributionManagement>
    <repository>
       <id>maven-releases</id>
-      <url>http://10.0.4.241:8081/repository/maven-releases/</url>
+      <url>http://10.0.5.121:8081/repository/maven-releases/</url>
    </repository>
    <snapshotRepository>
       <id>maven-snapshots</id>
-      <url>http://10.0.4.241:8081/repository/maven-snapshots/</url>
+      <url>http://10.0.5.121:8081/repository/maven-snapshots/</url>
    </snapshotRepository> 
   </distributionManagement>
 
