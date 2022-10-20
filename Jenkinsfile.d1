@@ -95,7 +95,7 @@ pipeline {
                             
                             playbook    : 'deploy.yml',
                             extraVars   : [
-                                    image_version: "ECR:${pom.version}"
+                                    image_version: ECR:${pom.version}
                                 ]
                         ])
 
