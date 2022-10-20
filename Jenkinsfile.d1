@@ -13,6 +13,7 @@ pipeline {
         NEXUS_REPOSITORY = "maven-releases"
         NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
         REGION = "us-east-1"
+        ECR_REG = "453411705158.dkr.ecr.us-east-1.amazonaws.com"
         ECR = "453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app"
         dockerImage = ''
         credential_id = 'AWS_ECR_Login'
@@ -76,8 +77,8 @@ pipeline {
                 script {
                     pom = readMavenPom file: "pom.xml";
                     dockerImage = docker.build ECR + ":${pom.version}"
-                    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 453411705158.dkr.ecr.us-east-1.amazonaws.com
-                    dockerImage.push() 
+                    aws ecr get-login-password --region REGION | docker login --username AWS --password-stdin ECR_REG
+                    dockerImage.push()
                     } 
                 }
                 
