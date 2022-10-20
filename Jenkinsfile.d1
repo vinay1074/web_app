@@ -12,7 +12,8 @@ pipeline {
         NEXUS_URL = "10.0.4.241:8081"
         NEXUS_REPOSITORY = "maven-releases"
         NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
-        IMAGE_VERSION = '5.0'
+        REGION = "us-east-1"
+        ECR = "453411705158.dkr.ecr.us-east-1.amazonaws.com"
         }
     stages {
         stage("Clone code from VCS") {
@@ -71,11 +72,11 @@ pipeline {
          // Build and push image with Jenkins' docker-plugin
                 script {
                     pom = readMavenPom file: "pom.xml";
-                    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 453411705158.dkr.ecr.us-east-1.amazonaws.com
-                    docker build -t web_app:${pom.version} .
-                    docker tag web_app:${pom.version} 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:${pom.version}
-                    docker push 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:${pom.version}
-                    docker rmi web_app:${pom.version} 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:${pom.version}
+                    aws ecr get-login-password --region REGION | docker login --username AWS --password-stdin ECR;
+                    docker build -t web_app:${pom.version} .;
+                    docker tag web_app:${pom.version} ECR/web_app:${pom.version};
+                    docker push ECR/web_app:${pom.version};
+                    docker rmi web_app:${pom.version} ECR/web_app:${pom.version};
             }
         }
            }
