@@ -79,7 +79,7 @@ pipeline {
                     docker.withRegistry ('https://453411705158.dkr.ecr.us-east-1.amazonaws.com','ecr:us-east-1:AWS_ECR_Login') {
                     dockerImage = docker.build('web_app' + ":${pom.version}")
                     dockerImage.push("${pom.version}")
-                    dockerImage.rmi("${pom.version}")
+                    docker.rmi ('web_app' + ":${pom.version}")
                     }
                     } 
                 }
