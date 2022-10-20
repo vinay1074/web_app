@@ -77,7 +77,7 @@ pipeline {
                 script {
                     pom = readMavenPom file: "pom.xml";
                     docker.withRegistry ('https://453411705158.dkr.ecr.us-east-1.amazonaws.com','ecr:us-east-1:AWS_ECR_Login') {
-                    dockerImage = docker.build('web_app' + ":${pom.version}")
+                    dockerImage = docker.build($ECR + ":${pom.version}")
                     dockerImage.push("${pom.version}")
                     }
                     } 
