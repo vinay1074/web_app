@@ -88,8 +88,8 @@ pipeline {
            
         stage ('K8S Deploy') {
             steps {
-                //kubectl delete deployment simple-web
-                sh '''
+                
+                sh '''kubectl delete deployment simple-web
                 kubectl apply -f Kubernetes_Deployment.yml
                 kubectl apply -f Kubernetes_Service.yml'''
         }
