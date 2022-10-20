@@ -81,20 +81,19 @@ pipeline {
                     dockerImage.push("${pom.version}")
                     }
                     } 
-                    sh "docker rmi ECR + ":${pom.version}""
                 }
                 
             }
         
            
-        //stage ('K8S Deploy') {
-            //steps {
-                
-                //sh '''kubectl delete deployment simple-web
-                //kubectl apply -f Kubernetes_Deployment.yml
-                //kubectl apply -f Kubernetes_Service.yml'''
-        //}
-        //}
+        stage ('K8S Deploy') {
+            steps {
+                //kubectl delete deployment simple-web
+                sh '''
+                kubectl apply -f Kubernetes_Deployment.yml
+                kubectl apply -f Kubernetes_Service.yml'''
+        }
+        }
 
        
 }
