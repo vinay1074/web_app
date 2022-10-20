@@ -91,7 +91,7 @@ pipeline {
                 script {
                     pom = readMavenPom file: "pom.xml";
                     def playbook = 'deploy.yml'
-                    ansiblePlaybook playbook: playbook, extras: '--extra-vars \'{"image_version": ECR + ":${pom.version}"}\''
+                    ansiblePlaybook playbook: playbook, extras: '--extra-vars '{"image_version": "453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:"${pom.version}""}''
                         //colorized: false,
                         //inventory: '/etc/ansible/hosts',
                         //limit: params.limit,
