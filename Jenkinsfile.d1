@@ -69,17 +69,16 @@ pipeline {
            stage ('Docker Build') {
                 steps {
          // Build and push image with Jenkins' docker-plugin
-                  sh label: '', script: '''aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 453411705158.dkr.ecr.us-east-1.amazonaws.com
-                  docker build -t web_app:${IMAGE_VERSION} .
-                  docker tag web_app:${IMAGE_VERSION} 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:${IMAGE_VERSION}
-                  docker push 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:${IMAGE_VERSION}
-                  docker rmi web_app:${IMAGE_VERSION} 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:${IMAGE_VERSION}
-                  '''
-
-                  
-            
+                script {
+                    pom = readMavenPom file: "pom.xml";
+                    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 453411705158.dkr.ecr.us-east-1.amazonaws.com;
+                    docker build -t web_app:${pom.version} .;
+                    docker tag web_app:${pom.version} 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:${pom.version};
+                    docker push 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:${pom.version};
+                    docker rmi web_app:${pom.version} 453411705158.dkr.ecr.us-east-1.amazonaws.com/web_app:${pom.version};
             }
         }
+           }
         stage ('K8S Deploy') {
             steps {
                 
