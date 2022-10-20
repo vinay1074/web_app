@@ -73,10 +73,10 @@ pipeline {
                 script {
                     pom = readMavenPom file: "pom.xml";
                     aws ecr get-login-password --region REGION | docker login --username AWS --password-stdin ECR;
-                    docker build -t web_app:pom.version .;
-                    docker tag web_app:pom.version ECR/web_app:pom.version;
-                    docker push ECR/web_app:pom.version;
-                    docker rmi web_app:pom.version ECR/web_app:pom.version;
+                    docker build -t web_app{:pom.version} .;
+                    docker tag web_app{:pom.version} ECR/web_app{:pom.version};
+                    docker push ECR/web_app{:pom.version};
+                    docker rmi web_app{:pom.version} ECR/web_app{:pom.version};
             }
         }
            }
