@@ -88,10 +88,21 @@ pipeline {
            
         stage ('K8S Deploy') {
             steps {
-                
-                sh '''kubectl delete deployment simple-web
-                kubectl apply -f Kubernetes_Deployment.yml
-                kubectl apply -f Kubernetes_Service.yml'''
+                script {
+                    pom = readMavenPom file: "pom.xml";
+                    def playbook = 'deploy.yml'
+                    dir('/home/jenkins') {
+                        ansiblePlaybook  playbook: playbook,
+                        //colorized: false,
+                        //inventory: '/etc/ansible/hosts',
+                        extras: image_version = ECR + ":${pom.version}"
+                        //limit: params.limit,
+                        //tags: params.tags
+                    }
+                }
+                //sh '''kubectl delete deployment simple-web
+                //kubectl apply -f Kubernetes_Deployment.yml
+                //kubectl apply -f Kubernetes_Service.yml'''
         }
         }
 
