@@ -92,7 +92,7 @@ pipeline {
                     pom = readMavenPom file: "pom.xml";
                     //def playbook = 'deploy.yml'
                     ansiblePlaybook([
-                            sudo        : true
+                            sudo        : true,
                             playbook    : 'deploy.yml',
                             extraVars   : [
                                     image_version: "$ECR:${pom.version}"
