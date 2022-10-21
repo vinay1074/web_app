@@ -92,6 +92,7 @@ pipeline {
                     pom = readMavenPom file: "pom.xml";
                     //def playbook = 'deploy.yml'
                     ansiblePlaybook([
+                            vaultCredentialsId  :  'vault',
                             playbook    : 'deploy.yml',
                             extraVars   : [
                                     image_version: "$ECR:${pom.version}"
