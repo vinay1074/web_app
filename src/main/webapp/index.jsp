@@ -22,7 +22,7 @@
             </ul>    	
         </div> <!-- end of tooplate_menu -->
 
-    	<div id="site_title"><h1><a rel="nofollow" href="http://www.tooplate.com">Free Website Templates</a></h1></div>
+    	<div id="site_title"><h1><a rel="nofollow" href="http://www.tooplate.com">docker and dockerfile demo</a></h1></div>
         
     </div> <!-- end of header -->
 </div> <!-- end of header wrapper -->
