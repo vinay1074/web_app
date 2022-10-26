@@ -6,7 +6,7 @@ node {
         git credentialsId: 'Git_Hub', url: 'https://github.com/vinay1074/web_app.git'
       }
       stage ('Build') {
-        sh '''mvn clean deploy'''
+        sh '''mvn clean package'''
       }
       stage ('deploy to docker container')
     {
