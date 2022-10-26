@@ -1,3 +1,5 @@
-FROM tomcat:8-jre8
-RUN mv /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps/
-COPY target/web_app.war /usr/local/tomcat/webapps/
+FROM tomcat:8.5.35-jre10
+ADD ./target/web_app.war /usr/local/tomcat/webapps/
+EXPOSE 8080
+RUN chmod +x /usr/local/tomcat/bin/catalina.sh
+CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]

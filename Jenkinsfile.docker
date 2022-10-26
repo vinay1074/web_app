@@ -1,0 +1,16 @@
+demo {
+    agent {
+        label "docker-client"
+    }
+      stage ('Code from SCM') {
+        git credentialsId: 'Git_Hub', url: 'https://github.com/vinay1074/web_app.git'
+      }
+      stage ('Build') {
+        sh '''mvn clean deploy'''
+      }
+      stage ('deploy to docker container')
+    {
+        sh '''docker build -t app:1 .
+        docker run -d -p 8080:8080 --name web_app app:1'''
+    }
+}
