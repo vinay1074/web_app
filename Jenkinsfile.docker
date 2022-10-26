@@ -1,7 +1,5 @@
-node {
-    agent {
-        label "docker-client"
-    }
+node ("docker-client") {
+    
       stage ('Code from SCM') {
         git credentialsId: 'Git_Hub', url: 'https://github.com/vinay1074/web_app.git'
       }
