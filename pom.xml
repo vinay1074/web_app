@@ -20,16 +20,16 @@
   </properties>
     
     
-    <!--distributionManagement>
+    <distributionManagement>
    <repository>
       <id>maven-releases</id>
-      <url>http://10.0.5.121:8081/repository/maven-releases/</url>
+      <url>http://54.144.207.168:8081/repository/maven-releases/</url>
    </repository>
    <snapshotRepository>
       <id>maven-snapshots</id>
-      <url>http://10.0.5.121:8081/repository/maven-snapshots/</url>
+      <url>http://54.144.207.168:8081/repository/maven-snapshots/</url>
    </snapshotRepository> 
-  </distributionManagement-->
+  </distributionManagement>
 
   <dependencies>
     <dependency>
