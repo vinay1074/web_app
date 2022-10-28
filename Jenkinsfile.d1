@@ -27,6 +27,7 @@ pipeline {
                 }
             }
         }
+        /*
         stage("Test"){
             steps{
                 withSonarQubeEnv('SonarQube'){
@@ -43,10 +44,14 @@ pipeline {
             waitForQualityGate abortPipeline: true
         }
              }
-    }
+    }*/
+    stage('OWZAP')
+     {
+        dependencyCheck additionalArguments: '--project Nexus-Pipeline', odcInstallation: 'OWSAP'
+     }
     stage("Build") {
         steps{
-            sh 'mvn clean deploy'
+            sh 'mvn clean install'
               }
     }
      /*  
@@ -70,7 +75,7 @@ pipeline {
                     }
                }  
            }  
-        }*/
+        }
            stage ('Docker Build') {
                 steps {
          // Build and push image with Jenkins' docker-plugin
@@ -85,7 +90,7 @@ pipeline {
                 
             }
         
-          /* 
+          
         stage ('K8S Deploy') {
             steps {
                 script {
