@@ -23,11 +23,11 @@
     <distributionManagement>
    <repository>
       <id>maven-releases</id>
-      <url>http://54.144.207.168:8081/repository/maven-releases/</url>
+      <url>https://vinay74.jfrog.io/artifactory/default-libs-release/</url>
    </repository>
    <snapshotRepository>
       <id>maven-snapshots</id>
-      <url>http://54.144.207.168:8081/repository/maven-snapshots/</url>
+      <url>https://vinay74.jfrog.io/artifactory/default-libs-snapshot/</url>
    </snapshotRepository> 
   </distributionManagement>
 
