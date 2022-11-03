@@ -24,4 +24,9 @@ node ('client') {
              sh '"$MVN_HOME/bin/mvn" clean deploy'
               }
     }
+    stage("Lint") {
+        docker.image('hadolint/hadolint').inside {
+            sh label: "Lint Dockerfile", script: "hadolint Dockerfile > hadolint-results.txt"
+        }
+    }
 }
