@@ -1,0 +1,27 @@
+node ('client') {
+     def mvnHome
+        stage("Clone code from VCS") {
+            git credentialsId: 'Git_Hub', url: 'https://github.com/vinay1074/web_app.git'
+            mvnHome = tool 'Maven'
+                }
+        stage("Test"){
+            withEnv(["MVN_HOME=$mvnHome"]){
+        withSonarQubeEnv('SonarQube'){
+        sh '''"$MVN_HOME/bin/mvn" clean verify sonar:sonar \
+  -Dsonar.projectKey=web-app-analysis 
+  '''
+    }
+            }
+        }
+        
+    stage("Quality gate") {
+                timeout(time: 2, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
+        }
+             }
+    stage("Build") {
+        withEnv(["MVN_HOME=$mvnHome"]){
+             sh '"$MVN_HOME/bin/mvn" clean deploy'
+              }
+    }
+}
