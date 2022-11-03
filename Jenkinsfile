@@ -24,7 +24,7 @@ pipeline {
             steps{
                 withSonarQubeEnv('SonarQube'){
         sh '''mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=web-app-anal 
+  -Dsonar.projectKey=web-app-analysis 
   '''
     }
             }
