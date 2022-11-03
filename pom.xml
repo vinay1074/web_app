@@ -23,11 +23,11 @@
     <distributionManagement>
    <repository>
       <id>maven-releases</id>
-      <url>https://vinay74.jfrog.io/artifactory/default-libs-release/</url>
+      <url>https://vinay74.jfrog.io/artifactory/default-libs-release-local/</url>
    </repository>
    <snapshotRepository>
       <id>maven-snapshots</id>
-      <url>https://vinay74.jfrog.io/artifactory/default-libs-snapshot/</url>
+      <url>https://vinay74.jfrog.io/artifactory/default-libs-release-local/</url>
    </snapshotRepository> 
   </distributionManagement>
 
