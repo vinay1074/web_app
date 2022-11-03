@@ -20,16 +20,18 @@
   </properties>
     
     
-    <distributionManagement>
-   <repository>
-      <id>maven-releases</id>
-      <url>https://vinay74.jfrog.io/artifactory/default-libs-release-local/</url>
-   </repository>
-   <snapshotRepository>
-      <id>maven-snapshots</id>
-      <url>https://vinay74.jfrog.io/artifactory/default-libs-release-local/</url>
-   </snapshotRepository> 
-  </distributionManagement>
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>a0fkoynj4k04u-artifactory-primary-0-releases</name>
+        <url>https://vinay74.jfrog.io/artifactory/default-libs-release-local</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>a0fkoynj4k04u-artifactory-primary-0-snapshots</name>
+        <url>https://vinay74.jfrog.io/artifactory/default-libs-snapshot-local</url>
+    </snapshotRepository>
+</distributionManagement>
 
   <dependencies>
     <dependency>
