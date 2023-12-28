@@ -38,6 +38,6 @@ pipeline:
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
                     connectorRef: Docker_Yuvaraj_K
-                    repo: web_app
+                    repo: vinay1074/web_app
                     tags:
                       - latest
