@@ -40,4 +40,4 @@ pipeline:
                     connectorRef: Docker_Yuvaraj_K
                     repo: vinay1074/web_app
                     tags:
-                      - "1"
+                      - latest
