@@ -9,6 +9,4 @@ spec:
   ports:
     - name: simple-web
       protocol: TCP
-      port: 32000
       targetPort: 8080
-      nodePort: 30000
