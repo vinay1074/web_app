@@ -1,0 +1,15 @@
+inputSet:
+  name: Yuvaraj_K_Git_Webhook
+  identifier: Yuvaraj_K_Git_Webhook
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: CICD_Yuvaraj_App
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
+  object Object: pipeline.properties.ci.codebase
