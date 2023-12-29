@@ -47,7 +47,7 @@
 					</div>
                     <h2>Free Website Templates</h2>
                     <img src="images/blog_image_01.jpg" alt="Image 01" />
-                    <p>CI/CD pipeline in harness<a rel="nofollow" href="http://www.tooplate.com" target="_parent">website template</a> for everyone. You may edit and apply this template for any purpose. Credit goes to <a rel="nofollow" href="http://www.photovaco.com" target="_blank">PhotoVaco.com</a> for photos used in this template. Fusce euismod eleifend dui vel elementum.  </p>
+                    <p>CI/CD pipeline in harness_GREEN <a rel="nofollow" href="http://www.tooplate.com" target="_parent">website template</a> for everyone. You may edit and apply this template for any purpose. Credit goes to <a rel="nofollow" href="http://www.photovaco.com" target="_blank">PhotoVaco.com</a> for photos used in this template. Fusce euismod eleifend dui vel elementum.  </p>
                     <div class="post_footer">
                     	<p class="comment">130 comments</p>
                         <a href="blog_post.html" class="more float_r">Read more</a>
