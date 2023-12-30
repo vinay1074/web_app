@@ -32,3 +32,9 @@ pipeline:
                   spec:
                     shell: Sh
                     command: mvn clean install
+        delegateSelectors:
+          - kubernetes-delegate
+        when:
+          pipelineStatus: Success
+        strategy:
+          parallelism: 1
