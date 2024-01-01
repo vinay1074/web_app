@@ -1,5 +1,5 @@
 pipeline:
-  name: Yuvaraj_K_K8S_Pipeline
+  name: Yuvaraj_K_K8S_CI_Pipeline
   identifier: Yuvaraj_K_K8S_Pipeline
   projectIdentifier: default_project
   orgIdentifier: default
