@@ -1,0 +1,15 @@
+inputSet:
+  name: Yuvaraj_K_K8S_CI_Pipeline
+  identifier: Yuvaraj_K_K8S_CI_Pipeline
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Yuvaraj_K_K8S_Pipeline
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: master
+  object Object: pipeline.properties.ci.codebase
