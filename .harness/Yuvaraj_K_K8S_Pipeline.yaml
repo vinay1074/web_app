@@ -27,11 +27,23 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: Run_1
+                  name: Maven_Build
                   identifier: Run_1
                   spec:
+                    connectorRef: account.harnessImage
+                    image: maven
                     shell: Sh
                     command: mvn clean install
+                    imagePullPolicy: Always
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Docker Build and Push
+                  identifier: Docker_Build_and_Push
+                  spec:
+                    connectorRef: Docker_Yuvaraj_K
+                    repo: vinay1074/web_app
+                    tags:
+                      - latest
         when:
           pipelineStatus: Success
         strategy:
