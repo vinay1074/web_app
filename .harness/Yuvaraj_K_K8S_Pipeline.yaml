@@ -43,7 +43,7 @@ pipeline:
                     connectorRef: Docker_Yuvaraj_K
                     repo: vinay1074/web_app
                     tags:
-                      - latest
+                      - <+trigger.artifact.build>
         when:
           pipelineStatus: Success
         strategy:
