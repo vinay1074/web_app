@@ -35,9 +35,9 @@ pipeline:
                     shell: Sh
                     command: mvn clean install
                     imagePullPolicy: Always
-        delegateSelectors:
-          - kubernetes-delegate
         when:
           pipelineStatus: Success
         strategy:
           parallelism: 1
+        delegateSelectors:
+          - docker-delegate
