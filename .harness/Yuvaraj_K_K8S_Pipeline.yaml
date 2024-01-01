@@ -30,11 +30,8 @@ pipeline:
                   name: Run_1
                   identifier: Run_1
                   spec:
-                    connectorRef: account.harnessImage
-                    image: maven
                     shell: Sh
                     command: mvn clean install
-                    imagePullPolicy: Always
         when:
           pipelineStatus: Success
         strategy:
