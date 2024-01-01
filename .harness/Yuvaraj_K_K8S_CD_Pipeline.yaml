@@ -44,3 +44,7 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+        delegateSelectors:
+          - kubernetes-delegate
+        when:
+          pipelineStatus: Success
