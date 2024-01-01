@@ -19,22 +19,12 @@ pipeline:
           cloneCodebase: true
           platform:
             os: Linux
-            arch: Amd64
+            arch: Arm64
           runtime:
             type: Docker
             spec: {}
           execution:
             steps:
-              - step:
-                  type: GitClone
-                  name: GitClone_1
-                  identifier: GitClone_1
-                  spec:
-                    connectorRef: Yuvaraj_K_App
-                    build:
-                      type: branch
-                      spec:
-                        branch: master
               - step:
                   type: Run
                   name: Run_1
