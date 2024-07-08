@@ -47,7 +47,7 @@ m﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w
 					</div>
                     <h2>Welcome to NEW Harness Pipeline</h2>
                     <img src="images/blog_image_01.jpg" alt="Image 01" />
-                    <p>Welcome to Harness CI and CD automated trigger<a rel="nofollow" href="http://www.tooplate.com" target="_parent">website template</a> for everyone. You may edit and apply this template for any purpose. Credit goes to <a rel="nofollow" href="http://www.photovaco.com" target="_blank">PhotoVaco.com</a> for photos used in this template. Fusce euismod eleifend dui vel elementum.  </p>
+                    <p>Welcome to Jenkins CI and CD automated trigger<a rel="nofollow" href="http://www.tooplate.com" target="_parent">website template</a> for everyone. You may edit and apply this template for any purpose. Credit goes to <a rel="nofollow" href="http://www.photovaco.com" target="_blank">PhotoVaco.com</a> for photos used in this template. Fusce euismod eleifend dui vel elementum.  </p>
                     <div class="post_footer">
                     	<p class="comment">130 comments</p>
                         <a href="blog_post.html" class="more float_r">Read more</a>
