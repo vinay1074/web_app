@@ -17,12 +17,6 @@ pipeline:
         type: CI
         spec:
           cloneCodebase: true
-          platform:
-            os: Linux
-            arch: Arm64
-          runtime:
-            type: Cloud
-            spec: {}
           execution:
             steps:
               - step:
@@ -44,9 +38,15 @@ pipeline:
                     repo: vinay1074/web_app
                     tags:
                       - <+pipeline.sequenceId>
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: Kubernetes_Yuvaraj_K
+              namespace: default
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
         when:
           pipelineStatus: Success
         strategy:
           parallelism: 1
-        delegateSelectors:
-          - docker-delegate
