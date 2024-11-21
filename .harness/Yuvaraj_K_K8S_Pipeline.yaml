@@ -50,3 +50,5 @@ pipeline:
           pipelineStatus: Success
         strategy:
           parallelism: 1
+        delegateSelectors:
+          - helm-delegate
