@@ -38,12 +38,14 @@ pipeline:
                     repo: vinay1074/web_app
                     tags:
                       - <+pipeline.sequenceId>
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Cloud
-            spec: {}
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: Kubernetes_Yuvaraj_K
+              namespace: default
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
         when:
           pipelineStatus: Success
         strategy:
